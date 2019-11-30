@@ -1,4 +1,4 @@
-module gobuild
+module github.com/Dapacruz/gobuild
 
 go 1.13
 
