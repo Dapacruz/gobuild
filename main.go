@@ -67,7 +67,7 @@ const supportedPlatforms string = `SUPPORTED PLATFORMS:
   Js-WASM, Linux-386, Linux-AMD64, Linux-ARM, Linux-ARM64, Linux-MIPS, Linux-MIPS64, Linux-MIPS64LE,
   Linux-MIPSLE, Linux-PPC64, Linux-PPC64LE, Linux-S390X, Nacl-386, Nacl-AMD64P32, Nacl-ARM, Netbsd-386,
   Netbsd-AMD64, Netbsd-ARM, Netbsd-ARM64, Openbsd-386, Openbsd-AMD64, Openbsd-ARM, Openbsd-ARM64,
-  Plan9-386, Plan9-AMD64, Plan9-ARM, Solaris-AMD64, Windows-386, Windows-AMD64, Windows-ARM,
+  Plan9-386, Plan9-AMD64, Plan9-ARM, Solaris-AMD64, Windows-386, Windows-AMD64, Windows-ARM
 `
 
 type arrayFlagString []string
@@ -120,12 +120,12 @@ func main() {
 	}
 
 	for _, p := range platform {
-		// Create output folder
-		path := fmt.Sprintf("output/%v-%v", platforms[strings.ToLower(p)]["GOOS"], platforms[strings.ToLower(p)]["GOARCH"])
+		// Create compiled-binaries directory
+		path := fmt.Sprintf("compiled-binaries/%v-%v", platforms[strings.ToLower(p)]["GOOS"], platforms[strings.ToLower(p)]["GOARCH"])
 		fmt.Printf("Compiling for %v ... ", p)
 		err := os.MkdirAll(path, os.ModePerm)
 		if err != nil {
-			log.Fatal("unable to create output folder")
+			log.Fatal("unable to create compiled-binaries directory")
 		}
 
 		// Set environment variables
