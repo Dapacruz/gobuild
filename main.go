@@ -120,12 +120,12 @@ func main() {
 	}
 
 	for _, p := range platform {
-		// Create output folder
-		path := fmt.Sprintf("output/%v-%v", platforms[strings.ToLower(p)]["GOOS"], platforms[strings.ToLower(p)]["GOARCH"])
+		// Create compiled-binaries directory
+		path := fmt.Sprintf("compiled-binaries/%v-%v", platforms[strings.ToLower(p)]["GOOS"], platforms[strings.ToLower(p)]["GOARCH"])
 		fmt.Printf("Compiling for %v ... ", p)
 		err := os.MkdirAll(path, os.ModePerm)
 		if err != nil {
-			log.Fatal("unable to create output folder")
+			log.Fatal("unable to create compiled-binaries directory")
 		}
 
 		// Set environment variables
